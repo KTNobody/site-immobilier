@@ -61,7 +61,9 @@ function Biens() {
           <div key={bien._id} className="bg-white border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
             <img src={bien.image} alt={bien.titre} className="w-full h-56 object-cover" />
             <div className="p-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-800">{bien.titre}</h3>
+            <a href={`/biens/${bien._id}`} className="text-xl font-bold text-gray-800 hover:underline">
+  {bien.titre}
+</a>
               <p className="text-gray-600">{bien.description}</p>
               <p className="text-blue-600 font-semibold">{bien.prix.toLocaleString()} €</p>
               <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
