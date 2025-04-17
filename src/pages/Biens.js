@@ -16,7 +16,7 @@ function Biens() {
         type,
         prix,
         description,
-        "image": image.asset->url
+        "image": galerie[0].asset->url
       }`)
       .then((data) => setBiens(data));
   }, []);
@@ -72,27 +72,30 @@ function Biens() {
         {biensFiltres.map((bien) => (
           <div
             key={bien._id}
-            className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden"
+            className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden flex flex-col"
           >
             <img
               src={bien.image}
               alt={bien.titre}
-              className="w-full h-56 object-cover"
+              className="w-full h-60 object-cover"
             />
-            <div className="p-4 space-y-2">
-              <a
-                href={`/biens/${bien._id}`}
-                className="text-xl font-semibold text-[#20575a] hover:underline"
-              >
-                {bien.titre}
-              </a>
-              <p className="text-gray-600">{bien.description}</p>
-              <p className="text-[#20575a] font-bold text-lg">
-                {bien.prix.toLocaleString()} €
-              </p>
-              <button className="mt-2 w-full bg-[#20575a] hover:bg-[#174345] text-white py-2 rounded-lg transition">
-                Je suis intéressé
-              </button>
+            <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-[#20575a]">{bien.titre}</h3>
+                <p className="text-gray-500">{bien.ville} - {bien.type}</p>
+                <p className="text-gray-700 whitespace-pre-line">{bien.description}</p>
+              </div>
+              <div className="mt-4">
+                <p className="text-lg font-semibold text-[#20575a]">
+                  {bien.prix.toLocaleString()} €
+                </p>
+                <a
+                  href={`/biens/${bien._id}`}
+                  className="mt-3 inline-block w-full bg-[#20575a] hover:bg-[#174345] text-white text-center py-2 rounded-lg transition"
+                >
+                  Je suis intéressé
+                </a>
+              </div>
             </div>
           </div>
         ))}

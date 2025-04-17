@@ -32,10 +32,13 @@ export default {
       type: 'text',
     },
     {
-      name: 'image',
-      title: 'Image principale',
-      type: 'image',
-      options: { hotspot: true },
-    },
-  ],
+      name: 'galerie',
+      title: 'Galerie photos',
+      type: 'array',
+      of: [{ type: 'image' }],
+      options: {
+        layout: 'grid'
+      }
+    }
+  ]
 }

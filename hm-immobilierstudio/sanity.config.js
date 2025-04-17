@@ -8,7 +8,7 @@ export default defineConfig({
   name: 'default',
   title: 'H&M Immobilier',
 
-  projectId: '9gi73z4e',
+  projectId: 'h9v35xhq',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
