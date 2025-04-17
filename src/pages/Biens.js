@@ -29,10 +29,10 @@ function Biens() {
 
   return (
     <div className="p-6 space-y-6">
-      <h2 className="text-2xl font-semibold text-center">Nos biens disponibles</h2>
+      <h2 className="text-3xl font-bold text-center text-blue-700">Nos biens disponibles</h2>
 
       {/* Filtres */}
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
         <select className="border p-2 rounded" onChange={(e) => setFiltreType(e.target.value)}>
           <option value="">Type de bien</option>
           <option value="Maison">Maison</option>
@@ -55,18 +55,23 @@ function Biens() {
         />
       </div>
 
-      {/* Affichage des biens */}
-      <div className="grid md:grid-cols-2 gap-6 mt-6">
+      {/* Résultats */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {biensFiltres.map((bien) => (
-          <div key={bien._id} className="border p-4 rounded-xl shadow">
-            <img src={bien.image} alt={bien.titre} className="rounded mb-3" />
-            <h3 className="text-xl font-bold">{bien.titre}</h3>
-            <p className="text-gray-600">{bien.description}</p>
-            <p className="mt-2 font-semibold text-blue-600">{bien.prix.toLocaleString()} €</p>
+          <div key={bien._id} className="bg-white border rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src={bien.image} alt={bien.titre} className="w-full h-56 object-cover" />
+            <div className="p-4 space-y-2">
+              <h3 className="text-xl font-bold text-gray-800">{bien.titre}</h3>
+              <p className="text-gray-600">{bien.description}</p>
+              <p className="text-blue-600 font-semibold">{bien.prix.toLocaleString()} €</p>
+              <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+                Je suis intéressé
+              </button>
+            </div>
           </div>
         ))}
         {biensFiltres.length === 0 && (
-          <p className="text-center text-gray-600 col-span-2">Aucun bien ne correspond à vos critères.</p>
+          <p className="text-center text-gray-500 col-span-full">Aucun bien ne correspond à vos critères.</p>
         )}
       </div>
     </div>
