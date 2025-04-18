@@ -14,7 +14,7 @@ function Header() {
         <Link to="/" className="flex items-center gap-3">
           <img
             src="/logo.png"
-            alt="Logo H&M"
+            alt="logo H&M"
             className="h-20 w-20 object-contain"
           />
           <span className="text-2xl font-bold text-white">H&M Immobilier</span>
