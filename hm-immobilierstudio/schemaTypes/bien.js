@@ -22,6 +22,15 @@ export default {
       },
     },
     {
+      name: 'categorie',
+      title: 'Catégorie',
+      type: 'string',
+      options: {
+        list: ['À vendre', 'À louer'],
+      },
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'prix',
       title: 'Prix',
       type: 'number',
