@@ -13,9 +13,9 @@ function Header() {
         {/* Logo + Nom */}
         <Link to="/" className="flex items-center gap-3">
           <img
-            src="/Logo.jpg"
+            src="/logo.png"
             alt="Logo H&M"
-            className="h-16 w-16 object-contain"
+            className="h-20 w-20 object-contain"
           />
           <span className="text-2xl font-bold text-white">H&M Immobilier</span>
         </Link>
